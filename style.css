@@ -45,6 +45,10 @@ footer {
     padding: 2rem 0;
 }
 
+footer a {
+    text-decoration: none;
+}
+
 #date {
     font-size: clamp(1rem, 5vw, 2rem);
     opacity: 60%;;
