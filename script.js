@@ -1,4 +1,4 @@
-const fullScreenButton = document.querySelector('button');
+const fullScreenButton = document.querySelector('#fullscreen-button');
 const body = document.querySelector('main');
 
 fullScreenButton.addEventListener('click', e => openFullscreen(body));
