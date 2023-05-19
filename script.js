@@ -21,7 +21,14 @@ function startTime() {
     m = checkTime(m);
     s = checkTime(s);
 
-    document.querySelector('#time').textContent = `${h}:${m}:${s}`;
+    let hourElement = document.querySelector('.hours');
+    let minuteElement = document.querySelector('.minutes');
+    let secondsElement = document.querySelector('.seconds');
+
+    hourElement.textContent = h;
+    minuteElement.textContent = m;
+    secondsElement.textContent = s;
+
     setTimeout(startTime, 1000);
 }
 
