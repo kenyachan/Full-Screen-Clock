@@ -39,6 +39,7 @@ main {
 footer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: min(80ch, 100% - 4rem);
     margin-inline: auto;
     padding: 2rem 0;
