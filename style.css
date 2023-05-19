@@ -47,6 +47,7 @@ footer {
 #date {
     font-size: 2rem;
     opacity: 60%;;
+    user-select: none;
 }
 
 #clock {
