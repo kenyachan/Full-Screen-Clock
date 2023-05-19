@@ -1,3 +1,6 @@
+const daysOfTheWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const monthsOfTheYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
 const fullScreenButton = document.querySelector('#fullscreen-button');
 const body = document.querySelector('main');
 
@@ -14,28 +17,33 @@ startTime();
 
 function startTime() {
     const today = new Date();
-    let h = today.getHours();
-    let m = today.getMinutes();
-    let s = today.getSeconds();
+    let hour = today.getHours();
+    let minute = today.getMinutes();
+    let seconds = today.getSeconds();
 
-    m = checkTime(m);
-    s = checkTime(s);
+    minute = checkTime(minute);
+    seconds = checkTime(seconds);
 
     let hourElement = document.querySelector('.hours');
     let minuteElement = document.querySelector('.minutes');
     let secondsElement = document.querySelector('.seconds');
 
-    hourElement.textContent = h;
-    minuteElement.textContent = m;
-    secondsElement.textContent = s;
+    hourElement.textContent = hour;
+    minuteElement.textContent = minute;
+    secondsElement.textContent = seconds;
+
+    let dayOfTheWeek = today.getDay();
+    let day = today.getDate();
+    let month = today.getMonth();
+    let year = today.getFullYear();
+
+    let dateElement = document.querySelector('#date');
+    
+    dateElement.textContent = `${daysOfTheWeek[dayOfTheWeek]}, ${day} ${monthsOfTheYear[month]} ${year}`;
 
     setTimeout(startTime, 1000);
 }
 
-function checkTime(i) {
-    if (i < 10) {
-        i = "0" + i;    // add zero in front of numbers < 10
-    }
-
-    return i;
+function checkTime(time) {
+    return time < 10 ? `0${time}` : time;
 }
