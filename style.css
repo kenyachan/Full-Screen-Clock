@@ -51,6 +51,7 @@ footer {
 
 #clock {
     display: flex;
+    user-select: none;
 }
 
 #clock p {
