@@ -13,16 +13,14 @@ function openFullscreen(element) {
         element.webkitRequestFullscreen;
 }
 
-startTime();
-
-function startTime() {
+function updateTime() {
     const today = new Date();
     let hour = today.getHours();
     let minute = today.getMinutes();
     let seconds = today.getSeconds();
 
-    minute = checkTime(minute);
-    seconds = checkTime(seconds);
+    minute = addLeadingZero(minute);
+    seconds = addLeadingZero(seconds);
 
     let hourElement = document.querySelector('.hours');
     let minuteElement = document.querySelector('.minutes');
@@ -31,6 +29,14 @@ function startTime() {
     hourElement.textContent = hour;
     minuteElement.textContent = minute;
     secondsElement.textContent = seconds;
+}
+
+function addLeadingZero(time) {
+    return time < 10 ? `0${time}` : time;
+}
+
+function updateDate() {
+    const today = new Date();
 
     let dayOfTheWeek = today.getDay();
     let day = today.getDate();
@@ -40,10 +46,9 @@ function startTime() {
     let dateElement = document.querySelector('#date');
     
     dateElement.textContent = `${daysOfTheWeek[dayOfTheWeek]}, ${day} ${monthsOfTheYear[month]} ${year}`;
-
-    setTimeout(startTime, 1000);
 }
 
-function checkTime(time) {
-    return time < 10 ? `0${time}` : time;
-}
+updateDate();
+updateTime();
+setInterval(updateDate, 21600);
+setInterval(updateTime, 1000);
