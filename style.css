@@ -47,8 +47,10 @@ footer {
     display: flex;
 }
 
-#time {
+#clock p {
     font-size: 16rem;
+    font-variant-numeric: tabular-nums lining-nums;
+    font-weight: 600;
 }
 
 .seconds {
