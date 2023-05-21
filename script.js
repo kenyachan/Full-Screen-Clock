@@ -50,5 +50,5 @@ function updateDate() {
 
 updateDate();
 updateTime();
-setInterval(updateDate, 21600);
+setInterval(updateDate, 1000);
 setInterval(updateTime, 1000);
