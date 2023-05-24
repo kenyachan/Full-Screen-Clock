@@ -1,0 +1,13 @@
+#clock {
+    display: flex;
+}
+
+#clock p {
+    font-size: 16vw;
+    font-variant-numeric: tabular-nums lining-nums;
+    font-weight: 600;
+}
+
+.seconds {
+    opacity: 50%;
+}

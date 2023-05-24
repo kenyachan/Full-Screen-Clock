@@ -1,0 +1,10 @@
+#date-container {
+    display: flex;
+    justify-content: center;
+}
+
+#date {
+    font-size: clamp(1.2rem, 3vw, 5rem);
+    opacity: 50%;
+    text-align: center;
+}
