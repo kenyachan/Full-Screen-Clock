@@ -15,7 +15,7 @@ export const screenController = (weatherApp) => {
     setInterval(updateClock, 1000);
     setInterval(async () => {
         await updateWeatherWidget(city)
-    }, 3600000);
+    }, 1800000);
 
     function initialiseFullScreenButton() {
         document.querySelector('#fullscreen-button')
