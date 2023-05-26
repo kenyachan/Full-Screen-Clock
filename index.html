@@ -7,14 +7,11 @@
     <title>Full Screen Clock</title>
 <script defer src="runtime.bundle.js"></script><script defer src="main.bundle.js"></script></head>
 <body>
+    <input type="search" placeholder="Change City...">
     <main>
-        <div id="weatherSearchContainer">
-            <input type="search" placeholder="Change City...">
-        </div>
         <div id="fullScreen-widget">
-            <div id="page-width">
-                <div id="weather-container">
-                    <div id="weather-widget">
+            <div class="fc-width">
+                <div id="weather-widget">
                         <img id="weatherIcon" src="">
                         <div>
                             <p id="weatherText"></p>
@@ -22,12 +19,9 @@
                             <p id="regionText" class="location"></p>
                             <p id="countryText" class="location"></p>
                         </div>
-                    </div>
                 </div>
                 <div id="date-time-container">
-                    <div id="date-container">
-                        <p id="date"></p>
-                    </div>
+                    <p id="date"></p>
                     <div id="clock">
                         <p class="hours"></p>
                         <p class="separator">:</p>
