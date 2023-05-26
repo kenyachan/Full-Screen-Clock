@@ -1,9 +1,24 @@
 #date-time-container {
-    /* position: absolute; */
-    /* left: 50%; */
-    /* top: -5% */
+    position: relative;
+    top: -5%;
 }
 
+#date {
+    font-size: clamp(1.2rem, 3vw, 5rem);
+    opacity: 50%;
+    text-align: center;
+}
 
+#clock {
+    display: flex;
+}
 
+#clock p {
+    font-size: 16vw;
+    font-variant-numeric: tabular-nums lining-nums;
+    font-weight: 600;
+}
 
+.seconds {
+    opacity: 50%;
+}

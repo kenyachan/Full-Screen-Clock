@@ -25,27 +25,33 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100svh;
+    padding: 2rem 0;
 }
 
 main {
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    flex: 1 1 auto;
     justify-content:center;
+    align-items: center;
+    margin: auto;
 }
 
 #fullScreen-widget {
     padding: 2rem 0;
     display: flex;
-    justify-content: center;
-    user-select: none;
-}
-
-#page-width {
-    height: 100%;
-    display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2rem;
+    align-items: center;
+    user-select: none;
+    margin-bottom: auto;
 }
 
+.fc-width {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}

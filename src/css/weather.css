@@ -1,17 +1,15 @@
 #weather-widget {
     display: flex;
-    justify-content: end;
+    position: relative;
+    top: -20%;
     align-items: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    align-self: flex-end;
 }
 
 #weather-widget {
     font-size: clamp(1rem, 3vw, 2rem);
-}
-
-#weather-container {
-    position: absolute;
-    top: 10%;
-    right: 17%;
 }
 
 .location {
@@ -19,22 +17,21 @@
     opacity: 50%;
 }
 
-#weatherSearchContainer {
-    display: flex;
-    justify-content: center;
-
-    position: absolute;
-    top: 5%;
-}
-
-#weatherSearchContainer input[type="search"] {
+input[type="search"] {
+    max-width: fit-content;
     font-size: clamp(1rem, 3vw, 1.5rem);
     background: none;
     border: none;
     border-bottom: 2px solid transparent;
 }
 
-#weatherSearchContainer input[type="search"]:focus {
+input[type="search"]:hover {
+    outline: none;
+    border-bottom: 2px solid grey;
+	transition: border .25s ease-in;
+}
+
+input[type="search"]:focus {
     outline: none;
     border-bottom: 2px solid grey;
 	transition: border .25s ease-in;

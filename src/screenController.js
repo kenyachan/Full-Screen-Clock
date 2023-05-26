@@ -94,7 +94,7 @@ export const screenController = (weatherApp) => {
     }
 
     function initialiseSearchBar() {
-        const searchBar = document.querySelector('#weatherSearchContainer input[type="search"');
+        const searchBar = document.querySelector('input[type="search"');
 
         searchBar.addEventListener('search', async (e) => {
             city = searchBar.value;
