@@ -24,6 +24,10 @@ footer div {
     border-radius: 5px;
     background: none;
     padding: 7px 21px;
+	display: block;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 #fullscreen-button:hover {
