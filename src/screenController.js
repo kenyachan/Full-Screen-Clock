@@ -8,6 +8,7 @@ export const screenController = (weatherApp) => {
 
     initialiseFullScreenButton();
     initialiseSearchBar();
+	initClickWeatherUpdate();
     updateDate();
     updateClock();
     updateWeatherWidget(city);
@@ -79,6 +80,14 @@ export const screenController = (weatherApp) => {
         regionText.textContent = forecast.locale.region;
         countryText.textContent = forecast.locale.country;
     }
+
+	function initClickWeatherUpdate() {
+		let weatherWidget = document.querySelector('#weather-widget');
+		console.log('hm');
+		weatherWidget.addEventListener('click', e => {
+			updateWeatherWidget(city);
+		});
+	}
 
     function updateWeatherText(forecast) {
         let weatherText = document.querySelector('#weatherText');
