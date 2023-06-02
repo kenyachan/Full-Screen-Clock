@@ -4,10 +4,18 @@ footer {
     align-items: center;
     width: min(80ch, 100% - 4rem);
     margin-top: auto;
+	gap: 1rem;
 }
 
 footer a {
     text-decoration: none;
+}
+
+footer div {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .2rem;
+	text-align: center;
 }
 
 #fullscreen-button {
@@ -21,3 +29,4 @@ footer a {
 #fullscreen-button:hover {
     border: 1px solid lightgrey;
 }
+
