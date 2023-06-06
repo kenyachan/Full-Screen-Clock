@@ -83,7 +83,6 @@ export const screenController = (weatherApp) => {
 
 	function initClickWeatherUpdate() {
 		let weatherWidget = document.querySelector('#weather-widget');
-		console.log('hm');
 		weatherWidget.addEventListener('click', e => {
 			updateWeatherWidget(city);
 		});
