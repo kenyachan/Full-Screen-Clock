@@ -7,6 +7,7 @@ export const screenController = (weatherApp) => {
     let city = 'Sydney';
 
     initialiseFullScreenButton();
+	initialiseFullScreenShortcut();
     initialiseSearchBar();
 	initClickWeatherUpdate();
     updateDate();
@@ -22,6 +23,13 @@ export const screenController = (weatherApp) => {
         document.querySelector('#fullscreen-button')
     .addEventListener('click', e => openFullScreen(fullScreenWidget));
     }
+
+	function initialiseFullScreenShortcut() {
+		document.addEventListener('keydown', e => {
+			if (e.code === 'KeyF')
+				openFullScreen(fullScreenWidget);
+		});
+	}
 
     function openFullScreen(element) {
         if (element.requestFullscreen)
