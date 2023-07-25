@@ -1,4 +1,4 @@
-import { forecast as newForecast } from './modules/objects/forecast';
+const Forecast = require('./modules/objects/forecast');
 
 export function weatherApp() {
 	async function getForecast(city) {
@@ -9,7 +9,7 @@ export function weatherApp() {
 		const response = await fetch(`${baseUrl}${forecastEndPoint}?key=${apiKey}&q=${city}&aqi=yes`, { mode: 'cors' });
 		const forecastData = await response.json();
 
-		let forecast = newForecast(forecastData);
+		let forecast = new Forecast(forecastData);
 
 		return forecast;
 	}

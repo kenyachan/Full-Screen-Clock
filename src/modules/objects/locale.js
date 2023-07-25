@@ -1,15 +1,21 @@
-export const locale = (locationData) => {
-	return {
-		get country() {
-			return locationData.country;
-		},
+class Locale {
+	locationData;
 
-		get region() {
-			return locationData.region;
-		},
+	constructor(locationData) {
+		this.locationData = locationData;
+	}
 
-		get name() {
-			return locationData.name;
-		},
+	get country() {
+		return this.locationData.country;
+	}
+
+	get region() {
+		return this.locationData.region;
+	}
+
+	get name() {
+		return this.locationData.name;
 	}
 }
+
+module.exports = Locale;

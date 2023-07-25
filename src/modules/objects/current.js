@@ -1,37 +1,43 @@
-import { condition as newCondition } from './condition';
+const Condition = require('./condition');
 
-export const current = (currentWeatherData) => {
-	return {
-		get temperature() {
-			return currentWeatherData.temp_c;
-		},
+class Current {
+	currentWeatherData;
 
-		get feelslike() {
-			return currentWeatherData.feelslike_c;
-		},
+	constructor(currentWeatherData) {
+		this.currentWeatherData = currentWeatherData;
+	}
 
-		get humidity() {
-			return currentWeatherData.humidity;
-		},
+	get temperature() {
+		return this.currentWeatherData.temp_c;
+	}
 
-		get precipitation() {
-			return currentWeatherData.precip_mm;
-		},
+	get feelsLike() {
+		return this.currentWeatherData.feelslike_c;
+	}
 
-		get uvIndex() {
-			return currentWeatherData.uv;
-		},
+	get humidity() {
+		return this.currentWeatherData.humidity;
+	}
 
-		get isDay() {
-			return currentWeatherData.is_day === 1 ? true : false;
-		},
+	get precipitation() {
+		return this.currentWeatherData.precip_mm;
+	}
 
-		get condition() {
-			return newCondition(currentWeatherData.condition);
-		},
+	get uvIndex() {
+		return this.currentWeatherData.uv;
+	}
 
-		get aqi() {
-			return currentWeatherData.air_quality['us-epa-index'];
-		},
+	get isDay() {
+		return this.currentWeatherData.is_day === 1 ? true : false;
+	}
+
+	get condition() {
+		return new Condition(this.currentWeatherData.condition);
+	}
+
+	get aqi() {
+		return this.currentWeatherData.air_quality['us-epa-index'];
 	}
 }
+
+module.exports = Current;

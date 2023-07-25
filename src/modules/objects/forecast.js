@@ -1,17 +1,20 @@
-import { locale as newLocale } from './locale';
-import { current as newCurrent } from './current';
+const Locale = require('./locale');
+const Current = require('./current');
 
-export const forecast = (forecastData) => {
-	const locale = newLocale(forecastData.location);
-	const current = newCurrent(forecastData.current);
+class Forecast {
+	forecastData;
 
-	return {
-		get locale() {
-			return locale;
-		},
+	constructor(forecastData) {
+		this.forecastData = forecastData;
+	}
 
-		get current() {
-			return current;
-		},
+	get locale() {
+		return new Locale(this.forecastData.location);
+	}
+
+	get current() {
+		return new Current(this.forecastData.current);
 	}
 }
+
+module.exports = Forecast;

@@ -1,11 +1,17 @@
-export const condition = (conditionData) => {
-	return {
-		get text() {
-			return conditionData.text;
-		},
+class Condition {
+	conditionData;
 
-		get icon() {
-			return conditionData.icon;
-		},
+	constructor(conditionData) {
+		this.conditionData = conditionData;
+	}
+
+	get text() {
+		return this.conditionData.text;
+	}
+
+	get icon() {
+		return this.conditionData.icon;
 	}
 }
+
+module.exports = Condition;
