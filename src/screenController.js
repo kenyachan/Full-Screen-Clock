@@ -1,5 +1,5 @@
-const daysOfTheWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-const monthsOfTheYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const DAYSOFTHEWEEK = require('./modules/daysOfTheWeek');
+const MONTHSOFTHEYEAR = require('./modules/monthsOfTheYear');
 
 export const screenController = (weatherApp) => {
     const fullScreenWidget = document.querySelector('#fullScreen-widget');
@@ -68,7 +68,7 @@ export const screenController = (weatherApp) => {
     
         let dateElement = document.querySelector('#date');
         
-        dateElement.textContent = `${daysOfTheWeek[dayOfTheWeek]}, ${day} ${monthsOfTheYear[month]} ${year}`;
+        dateElement.textContent = `${DAYSOFTHEWEEK[dayOfTheWeek]}, ${day} ${MONTHSOFTHEYEAR[month]} ${year}`;
     }
 
     async function updateWeatherWidget(city) {
