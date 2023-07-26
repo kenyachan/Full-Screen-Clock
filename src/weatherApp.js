@@ -1,7 +1,10 @@
 const Forecast = require('./modules/objects/forecast');
 
-export function weatherApp() {
-	async function getForecast(city) {
+class WeatherApp {
+	constructor() {
+	}
+
+	async getForecast(city) {
 		const baseUrl = 'https://api.weatherapi.com/v1';
 		const forecastEndPoint = '/forecast.json';
 		const apiKey = '95ce1f183f22452981d74145232304';
@@ -13,9 +16,6 @@ export function weatherApp() {
 
 		return forecast;
 	}
-
-	return {
-		getForecast,
-	}
 }
 
+module.exports = WeatherApp;
