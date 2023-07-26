@@ -4,25 +4,37 @@ const MONTHSOFTHEYEAR = require('./modules/monthsOfTheYear');
 class ScreenController {
 	weatherApp;
 
+	/* datetime elements */
+	hourElement = document.querySelector('.hours');
+	minuteElement = document.querySelector('.minutes');
+	secondsElement = document.querySelector('.seconds');
+	dateElement = document.querySelector('#date');
+
+	/* weather widget elements */
+	cityText = document.querySelector('#cityText');
+	regionText = document.querySelector('#regionText');
+	countryText = document.querySelector('#countryText');
+	weatherText = document.querySelector('#weatherText');
+	weatherIcon = document.querySelector('#weatherIcon');
+
+	/* misc elements */
+    fullScreenWidget = document.querySelector('#fullScreen-widget');
+
 	constructor(weatherApp) {
 		this.weatherApp = weatherApp;
 	}
 
 	initialiseFullScreenButton() {
-    	const fullScreenWidget = document.querySelector('#fullScreen-widget');
-
 		document.querySelector('#fullscreen-button')
     		.addEventListener('click', e => 
-				this.#openFullScreen(fullScreenWidget)
+				this.#openFullScreen(this.fullScreenWidget)
 			);
 	}
 
 	initialiseFullScreenShortcut() {
-    	const fullScreenWidget = document.querySelector('#fullScreen-widget');
-
 		document.addEventListener('keydown', e => {
 			if (e.code === 'KeyF')
-				this.#openFullScreen(fullScreenWidget);
+				this.#openFullScreen(this.fullScreenWidget);
 		});
 	}
 
@@ -53,13 +65,9 @@ class ScreenController {
 
 	/* clock */
 	updateClock(dateTime) {
-		let hourElement = document.querySelector('.hours');
-        let minuteElement = document.querySelector('.minutes');
-        let secondsElement = document.querySelector('.seconds');
-
-        hourElement.textContent = this.#addLeadingZero(dateTime.getHours());
-        minuteElement.textContent = this.#addLeadingZero(dateTime.getMinutes());
-        secondsElement.textContent = this.#addLeadingZero(dateTime.getSeconds());
+        this.hourElement.textContent = this.#addLeadingZero(dateTime.getHours());
+        this.minuteElement.textContent = this.#addLeadingZero(dateTime.getMinutes());
+        this.secondsElement.textContent = this.#addLeadingZero(dateTime.getSeconds());
 	}
 
 	#addLeadingZero(time) {
@@ -74,9 +82,7 @@ class ScreenController {
         let month = dateTime.getMonth();
         let year = dateTime.getFullYear();
     
-        let dateElement = document.querySelector('#date');
-        
-        dateElement.textContent = `${DAYSOFTHEWEEK[dayOfTheWeek]}, ${day} ${MONTHSOFTHEYEAR[month]} ${year}`;
+        this.dateElement.textContent = `${DAYSOFTHEWEEK[dayOfTheWeek]}, ${day} ${MONTHSOFTHEYEAR[month]} ${year}`;
 	}
 
 	/* weather */
@@ -89,26 +95,18 @@ class ScreenController {
 	}
 
 	#updateLocationText(forecast) {
-		let cityText = document.querySelector('#cityText');
-        let regionText = document.querySelector('#regionText');
-        let countryText = document.querySelector('#countryText');
-
-        cityText.textContent = forecast.locale.name;
-        regionText.textContent = forecast.locale.region;
-        countryText.textContent = forecast.locale.country;
+		this.cityText.textContent = forecast.locale.name;
+        this.regionText.textContent = forecast.locale.region;
+        this.countryText.textContent = forecast.locale.country;
 	}
 
 	#updateWeatherText(forecast) {
-		let weatherText = document.querySelector('#weatherText');
-
-        weatherText.textContent = 
+        this.weatherText.textContent = 
         `${forecast.current.temperature}\u00B0 ${forecast.current.condition.text}`;
 	}
 
 	#updateWeatherIcon(forecast) {
-		let weatherIcon = document.querySelector('#weatherIcon');
-
-		weatherIcon.src = forecast.current.condition.icon;
+		this.weatherIcon.src = forecast.current.condition.icon;
 	}
 }
 
