@@ -23,7 +23,7 @@ let city = 'Sydney';
 
 screenController.updateWeatherWidget(city);
 
-setInterval(() => screenController.updateClock(new Date()), 1000);
+setInterval(() => screenController.updateClock(new Date()), 100);
 setInterval(() => screenController.updateDate(new Date()), 1000);
 setInterval(() => async () => {
 	await screenController.updateWeatherWidget(city);
