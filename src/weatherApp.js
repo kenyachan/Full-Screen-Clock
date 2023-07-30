@@ -5,12 +5,12 @@ class WeatherApp {
 		this.defaultCity = defaultCity;
 	}
 
-	async getForecast(city) {
+	async getForecast(city, myfetch) {
 		const baseUrl = 'https://api.weatherapi.com/v1';
 		const forecastEndPoint = '/forecast.json';
 		const apiKey = '95ce1f183f22452981d74145232304';
 
-		const response = await fetch(`${baseUrl}${forecastEndPoint}?key=${apiKey}&q=${city || this.defaultCity}&aqi=yes`, { mode: 'cors' });
+		const response = await myfetch(`${baseUrl}${forecastEndPoint}?key=${apiKey}&q=${city || this.defaultCity}&aqi=yes`, { mode: 'cors' });
 		
 		return this.#parseForecast(await response.json());
 	}
@@ -24,7 +24,7 @@ class WeatherApp {
 			},
 			current : {
 				temperature : forecastData.current.temp_c,
-				feelsLike : forecastData.current.feelslike_c,
+				feelslike : forecastData.current.feelslike_c,
 				humidity : forecastData.current.humidity,
 				precipitation : forecastData.current.precip_mm,
 				uvIndex : forecastData.current.uv,
@@ -33,7 +33,7 @@ class WeatherApp {
 					text : forecastData.current.condition.text,
 					icon : forecastData.current.condition.icon
 				},
-				aqi : forecastData.current.air_quality['us-epa-index'],
+				aqi : forecastData.current["air_quality['us-epa-index']"],
 			},
 		}
 	}

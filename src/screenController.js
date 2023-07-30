@@ -87,7 +87,7 @@ class ScreenController {
 
 	/* weather */
 	async updateWeatherWidget(city) {
-	    let forecast = await this.weatherApp.getForecast(city);
+	    let forecast = await this.weatherApp.getForecast(city, fetch);
                 
         this.#updateWeatherText(forecast);
         this.#updateLocationText(forecast);
