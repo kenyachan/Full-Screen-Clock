@@ -56,13 +56,13 @@ let forecast = {
 	},
 }
 
-test('Get forecast will return a forecast object', async () => {
-	let mockFetch = jest.fn(() => 
-		Promise.resolve({
-			json: () => Promise.resolve(forecastData),
-		})
-	);
+let mockFetch = jest.fn(() => 
+	Promise.resolve({
+		json: () => Promise.resolve(forecastData),
+	})
+);
 
+test('Get forecast will return a forecast object', async () => {
 	let fetchedForecastData = await mockFetch();
 	expect(await fetchedForecastData.json()).toEqual(forecastData);
 
